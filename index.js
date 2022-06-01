@@ -1,5 +1,6 @@
 const Express = require('express');
 const database = require('./database');
+const process = require('process');
 
 const app = Express();
 
@@ -15,7 +16,7 @@ app.get('/location', (req, res) => {
 	res.send(JSON.stringify(database.location));
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
 	console.log(`Listening on ${port}`);
 });
