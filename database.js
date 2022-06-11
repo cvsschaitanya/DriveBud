@@ -36,6 +36,10 @@ let location = {
 	charging_stations: 6
 };
 
+setInterval(()=>{
+	home.range = (home.range + 7)%100;
+}, 1000);
+
 module.exports = {
 	home,
 	stats,
