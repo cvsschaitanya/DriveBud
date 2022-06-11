@@ -31,13 +31,22 @@ let home = {
 };
 
 let location = {
-	latlng: [ 17.12, 81.29 ],
+	latlng: [17.12, 81.29],
 	service_centres: 15,
 	charging_stations: 6
 };
 
-setInterval(()=>{
-	home.range = (home.range + 7)%100;
+setInterval(() => {
+	home.range = (home.range + 7) % 100;
+	const centres = location.service_centres + (Math.floor(Math.random() * 3) - 1);
+	if (centres > 30) centres = 29;
+	else if (centres < 2) centres = 3;
+	location.service_centres = centres;
+	const stations = location.charging_stations + (Math.floor(Math.random() * 3) - 1);
+	if (stations > 30) stations = 29;
+	else if (stations < 2) stations = 3;
+	location.charging_stations = stations;
+
 }, 1000);
 
 module.exports = {
