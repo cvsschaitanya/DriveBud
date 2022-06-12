@@ -39,7 +39,7 @@ let location = {
 setInterval(() => {
 	home.range = (home.range + 7) % 100;
 	
-    location.latlng[1] += 0.1;
+    location.latlng[1] += 0.001;
     
     let centres = location.service_centres + Math.pow(-1, Math.floor(Math.random() * 2));
 	if (centres > 30) centres = 29;
