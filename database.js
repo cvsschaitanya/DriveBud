@@ -38,11 +38,15 @@ let location = {
 
 setInterval(() => {
 	home.range = (home.range + 7) % 100;
-	let centres = location.service_centres + Math.pow(-1, Math.floor(Math.random() * 2));
+	
+    location.latlng[1] += 0.1;
+    
+    let centres = location.service_centres + Math.pow(-1, Math.floor(Math.random() * 2));
 	if (centres > 30) centres = 29;
 	else if (centres < 2) centres = 3;
 	location.service_centres = centres;
-	let stations = location.charging_stations + Math.pow(-1, Math.floor(Math.random() * 2));
+	
+    let stations = location.charging_stations + Math.pow(-1, Math.floor(Math.random() * 2));
 	if (stations > 30) stations = 29;
 	else if (stations < 2) stations = 3;
 	location.charging_stations = stations;
