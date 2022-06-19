@@ -38,20 +38,27 @@ let location = {
 
 setInterval(() => {
 	home.range = (home.range + 7) % 100;
-	
-    location.latlng[1] += 0.001;
-    
-    let centres = location.service_centres + Math.pow(-1, Math.floor(Math.random() * 2));
+
+	stats[0].statValue = 5.5 + Math.round(Math.random() * 100) / 100;
+	stats[1].statValue = (stats[1].statValue + 1) % 1000;
+	stats[2].statValue = 40 + Math.round(Math.random() * 10 * 100) / 100;
+	stats[3].statValue = Math.floor(Math.random() * 5);
+	stats[4].statValue = Math.floor(Math.random() * 5);
+	stats[5].statValue = 5.5 + Math.round(Math.random() * 4 * 10) / 10;
+
+	// location.latlng[1] += 0.001;
+
+	let centres = location.service_centres + Math.pow(-1, Math.floor(Math.random() * 2));
 	if (centres > 30) centres = 29;
 	else if (centres < 2) centres = 3;
 	location.service_centres = centres;
-	
-    let stations = location.charging_stations + Math.pow(-1, Math.floor(Math.random() * 2));
+
+	let stations = location.charging_stations + Math.pow(-1, Math.floor(Math.random() * 2));
 	if (stations > 30) stations = 29;
 	else if (stations < 2) stations = 3;
 	location.charging_stations = stations;
 
-	console.log(location);
+	console.log(stats);
 }, 1000);
 
 module.exports = {
